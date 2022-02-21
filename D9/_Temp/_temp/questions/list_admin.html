@@ -1,0 +1,62 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block menu %}
+{% include 'questions/menu_question.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h3>Тема: {{theme|truncatechars:25}}, Вопросов: {{ questions_count }}</h3>
+{% endblock title %}
+
+
+<!--
+<h3> {{ value1|default_if_none:"ничего" }} </h3>
+-->
+
+{% block content %}
+
+{%if questions%}
+
+<table style="width: 100%">
+    <tr>
+        <th> №</th>
+        <th> Вопрос</th>
+        <th> Тип</th>
+        <th> Ответы</th>
+        <th></th>
+    </tr>
+    {% for question in questions %}
+    <tr>
+        <td> {{ question.id}}</td>
+        <td><a href="update/{{question.id}}"><u> {{ question.text|truncatechars:25 }} </u></a></td>
+        <td> {{ question.type|qs_type}}</td>
+        {%if question.id|as_count == 'текст' %}
+            <td></td>
+        {%else%}
+            <td><a href="/surveys/questions/{{sr}}/answers/{{ question.id }}"><u> {{ question.id|as_count }} </u></a></td>
+        {%endif%}
+        <td>
+            <a href="delete/{{question.id}}" ><u> Del </u></a>
+        </td>
+
+    </tr>
+    {% endfor%}
+</table>
+
+
+{%else%}
+<h4>Вопросов нет</h4>
+{%endif%}
+
+<h3><br></h3>
+<button onclick="document.location='create/'" class="btn btn-primary">Добавить Вопросы</button>
+
+{% endblock content %}
+
+
+<!--
+        <td><a href="{% url 'question_update' question.id %}"><u> {{ question.text|truncatechars:25 }} </u></a></td>
+        <td><a href="{% url 'question_update' survey.id %}"><u> {{ question.theme|truncatechars:25 }} </u></a></td>
+
+-->

@@ -1,0 +1,30 @@
+{% extends 'flatpages/default.html' %}
+
+<!--{% block title0 %} <h6> Новость 0№ </h6> {% endblock title0 %}-->
+
+{% block menu %}
+{% endblock menu %}
+
+{% block title %}
+<h1> Опрос2 </h1>
+{% endblock title %}
+
+
+<!-- В контенте на странице мы выводим сам товар, ID которого было передано в адрес -->
+{% block content %}
+<form action="/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="client_name"> Your name </label>
+    <input type="text" name="client_name"><br>
+    <label for="message">Short description of your issue</label>
+    <input type="text" name="message"><br>
+    <label for="datetime"> Choose time </label>
+    <input type="date" name="date"><br>
+    <input type="submit">
+
+</form>
+
+{% endblock content %}
+
+
+

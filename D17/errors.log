@@ -1,0 +1,486 @@
+2022-01-03 10:00:30,350 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.urls.exceptions.NoReverseMatch'>, NoReverseMatch("Reverse for 'set_language' not found. 'set_language' is not a valid view function or pattern name."), <traceback object at 0x7f60c60578c0>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/urls/base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'set_language' not found. 'set_language' is not a valid view function or pattern name.
+2022-01-03 10:00:30,353 ERROR "GET / HTTP/1.1" 500 162302 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-03 10:02:11,174 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Invalid block tag on line 167: 'endcomment', expected 'endblock'. Did you forget to register or load this tag?"), <traceback object at 0x7fb2cfbfa340>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'endcomment'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 522, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 167: 'endcomment', expected 'endblock'. Did you forget to register or load this tag?
+2022-01-03 10:02:11,178 ERROR "GET / HTTP/1.1" 500 185312 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-03 10:03:50,580 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Invalid block tag on line 173: 'endcomment'. Did you forget to register or load this tag?"), <traceback object at 0x7f968afd2140>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'endcomment'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 531, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 173: 'endcomment'. Did you forget to register or load this tag?
+2022-01-03 10:03:50,592 ERROR "GET / HTTP/1.1" 500 167357 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-03 10:03:53,604 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Invalid block tag on line 173: 'endcomment'. Did you forget to register or load this tag?"), <traceback object at 0x7f968b857880>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'endcomment'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 531, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 173: 'endcomment'. Did you forget to register or load this tag?
+2022-01-03 10:03:53,607 ERROR "GET / HTTP/1.1" 500 167220 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-03 10:15:00,474 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("<ExtendsNode: extends 'flatpages/default.html'> must be the first tag in the template."), <traceback object at 0x7f400141d7c0>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 479, in parse
+    self.extend_nodelist(nodelist, compiled_result, token)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 496, in extend_nodelist
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: <ExtendsNode: extends 'flatpages/default.html'> must be the first tag in the template.
+2022-01-03 10:15:00,480 ERROR "GET / HTTP/1.1" 500 141750 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-03 11:20:04,443 ERROR Internal Server Error: /news/ /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_en_us'), <traceback object at 0x7f1c92b94b80>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.title_en_us
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/defaultfilters.py", line 565, in length
+    return len(value)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.title_en_us
+2022-01-03 11:20:04,446 ERROR "GET /news/ HTTP/1.1" 500 216455 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-03 11:21:46,678 ERROR Internal Server Error: /news/ /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_en_us'), <traceback object at 0x7fcc2f44a200>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: news_post.title_en_us
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/base.py", line 698, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/template/defaultfilters.py", line 565, in length
+    return len(value)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: news_post.title_en_us
+2022-01-03 11:21:46,681 ERROR "GET /news/ HTTP/1.1" 500 216592 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-04 12:04:41,608 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.utils.datastructures.MultiValueDictKeyError'>, MultiValueDictKeyError('timezone'), <traceback object at 0x7f72fbeb6380>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'timezone'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/contrib/auth/mixins.py", line 71, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/D17/NewsPaper/views.py", line 57, in post
+    request.session['django_timezone'] = request.POST['timezone']
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'timezone'
+2022-01-04 12:04:41,609 ERROR "POST / HTTP/1.1" 500 95990 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-04 12:04:50,618 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.utils.datastructures.MultiValueDictKeyError'>, MultiValueDictKeyError('timezone'), <traceback object at 0x7f72fbdf3880>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'timezone'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/contrib/auth/mixins.py", line 71, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/D17/NewsPaper/views.py", line 57, in post
+    request.session['django_timezone'] = request.POST['timezone']
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'timezone'
+2022-01-04 12:04:50,632 ERROR "POST / HTTP/1.1" 500 95990 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-04 12:06:56,152 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.utils.datastructures.MultiValueDictKeyError'>, MultiValueDictKeyError('timezone'), <traceback object at 0x7f4e70d86780>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'timezone'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/contrib/auth/mixins.py", line 71, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/D17/NewsPaper/views.py", line 57, in post
+    if not request.POST['timezone']:
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'timezone'
+2022-01-04 12:06:56,154 ERROR "POST / HTTP/1.1" 500 95983 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-04 12:10:19,451 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.utils.datastructures.MultiValueDictKeyError'>, MultiValueDictKeyError('timezone'), <traceback object at 0x7f21ec781700>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'timezone'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/contrib/auth/mixins.py", line 71, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/D17/NewsPaper/views.py", line 61, in post
+    request.session['django_timezone'] = request.POST['timezone']
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'timezone'
+2022-01-04 12:10:19,453 ERROR "POST / HTTP/1.1" 500 96049 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None
+2022-01-04 12:10:52,140 ERROR Internal Server Error: / /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/log.py (<class 'django.utils.datastructures.MultiValueDictKeyError'>, MultiValueDictKeyError('timezone'), <traceback object at 0x7f97869a1a00>)
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'timezone'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/contrib/auth/mixins.py", line 71, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/aadmin/Python/Lessons/Django/D17/NewsPaper/views.py", line 61, in post
+    request.session['django_timezone'] = request.POST['timezone']
+  File "/home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'timezone'
+2022-01-04 12:10:52,143 ERROR "POST / HTTP/1.1" 500 96057 /home/aadmin/Python/Lessons/Django/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py None

@@ -1,0 +1,57 @@
+{% extends 'flatpages/default.html' %}
+
+<!--{% block title0 %} <h6> Новость 0№ </h6> {% endblock title0 %}-->
+
+{% block title %}
+<h1> Aвторизация </h1>
+{% endblock title %}
+
+{% block menu %}
+{% endblock menu %}
+
+<!-- В контенте на странице мы выводим сам товар, ID которого было передано в адрес -->
+<!--    <form action="{% url 'logins:login' %}" method="POST" enctype="multipart/form-data"> -->
+
+{% block content %}
+<form action="/accounts/login/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h9>Введите желаемые Логин и Пароль или Анонимный вход с спустыми данными</h9>
+    <br><br>
+
+    <div class="row g-3 align-items-center">
+        <div class="col-1">
+            <label for="username" class="col-form-label">Имя</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" id="username" class="form-control" name="username" value='{{username}}'>
+        </div>
+        <div class="col-auto">
+    <span id="username" class="form-text">
+      Имя пользователя для входа в систему
+    </span>
+        </div>
+    </div>
+    <br>
+    <div class="row g-3 align-items-center">
+        <div class="col-1">
+            <label for="password" class="col-form-label">Пароль</label>
+        </div>
+        <div class="col-auto">
+            <input type="password" id="password" class="form-control" name="password" value='{{password}}'>
+        </div>
+        <div class="col-auto">
+    <span id="password" class="form-text">
+      Пароль пользователя для входа в систему
+    </span>
+        </div>
+    </div>
+
+    <br><br>
+    <button type="submit" class="btn btn-primary">Войти</button>
+
+</form>
+
+{% endblock content %}
+
+
+

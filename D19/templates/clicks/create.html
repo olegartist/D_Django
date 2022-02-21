@@ -1,0 +1,45 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+    {% include 'clicks/menu_create.html' %}
+{% endblock menu %}
+
+{% block title %}
+    <h3><p class="text-center">Заголовок: {{post.title}}</p></h3>
+    <h4><p class="text-center">Написал {{post.user.username}} от {{post.created|date:'d.m.Y'}}, категория: {{post.cats.name}}</p></h4>
+{% endblock title %}
+
+{% block content %}
+
+    <style>
+        body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %}
+        powderblue {% endif %};}
+    </style>
+
+{% include 'script_view.html' %}
+
+        <div class="input-group">
+          <span class="col-1">Текст</span>
+          <textarea id="forTinyMCE" class="form-control" readonly>{{post.content}}</textarea>
+        </div>
+
+    <br>
+    <form method="POST" enctype="multipart/form-data" class="text-left">
+    {% csrf_token %}
+
+        <div class="input-group">
+          <span class="col-1">Отзыв</span>
+          <textarea id="clicks" class="form-control" name="clicks"></textarea>
+        </div>
+
+        <br>
+        <p><button type="submit" class="btn btn-primary">Создать Отзыв</button></p>
+    </form>
+    {% comment %}
+    {% endcomment %}
+
+{% endblock content %}
+
+
+{% block content1 %}
+{% endblock content1 %}

@@ -1,0 +1,79 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block menu %}
+{% include 'answers/menu_answer.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h3>Тема: {{theme|truncatechars:25}}, Вопрос: {{text|truncatechars:25 }} , Ответов: {{ answers_count }} </h3>
+{% endblock title %}
+
+
+<!--
+<h3> {{ value1|default_if_none:"ничего" }} </h3>
+-->
+
+{% block content %}
+{%if answers%}
+
+<table style="width: 100%">
+    <tr>
+        <th> №</th>
+        <th> Тип</th>
+        <th> Ответ</th>
+        <th></th>
+    </tr>
+    {% for answer in answers %}
+    <tr>
+        <td> {{ answer.id}}</td>
+        <td> {% if type == '2' %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault{{answer.id}}">
+                <label class="form-check-label" for="flexCheckDefault{{answer.id}}">
+                </label>
+            </div>
+            {% else %}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{answer.id}}">
+                <label class="form-check-label" for="flexRadioDefault{{answer.id}}">
+                </label>
+            </div>
+            {% endif %}
+        </td>
+        <td><a href="update/{{answer.id}}"><u> {{ answer.text|truncatechars:25 }} </u></a></td>
+        <td>
+            <a href="delete/{{answer.id}}" ><u> Del </u></a>
+        </td>
+
+    </tr>
+    {% endfor%}
+</table>
+
+
+{%else%}
+<h4>Ответов нет</h4>
+{%endif%}
+
+<h3><br></h3>
+<button onclick="document.location='create/'" class="btn btn-primary">Добавить Ответ</button>
+
+{% endblock content %}
+
+
+<!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->

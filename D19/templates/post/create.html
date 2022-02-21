@@ -1,0 +1,66 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+    {% include 'post/menu_create.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h1><p class="text-center">Доска объявлений MPOG</p></h1>
+
+{% endblock title %}
+
+{% block content %}
+
+    <style>
+        body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %}
+        powderblue {% endif %};}
+    </style>
+
+{% include 'script_editor.html' %}
+
+    <form action="/posts/create/{{user_cat.id}}" method="POST" enctype="multipart/form-data" class="text-left">
+    {% csrf_token %}
+
+        <div class="input-group">
+          <span class="col-1">Категория</span>
+            <select class="form-select" aria-label="Default select example" name="cats" required="" id="cats">
+                {% if not is_cat %}
+                    <option selected value={{user_cat.id}} >{{user_cat.name}}</option>
+                {% endif %}
+                {% for cat in cats %}
+                    <option {% if is_cat and user_cat.name == cat.name %} selected {% endif %} value={{cat.id}} >{{cat.name}}</option>
+                {% endfor%}
+            </select>
+        </div>
+
+        <br>
+        <div class="input-group">
+          <span class="col-1">Заголовок</span>
+         <input type="text" class="form-control" name="title" value={{title}}>
+        </div>
+
+        <br>
+        <div class="input-group">
+          <span class="col-1">Текст</span>
+          <textarea id="forTinyMCE" class="form-control" name="content">{{content}}</textarea>
+        </div>
+
+        {% if not error == "" %}
+            <br>
+            <div class="col-md-12">
+                <div class="p-3 mb-3 bg-danger text-white">Ошибка: {{error}}</div>
+            </div>
+        {% endif %}
+        <br>
+        <p><button type="submit" class="btn btn-primary">Создать объявление</button></p>
+    </form>
+
+
+    {% comment %}
+    {% endcomment %}
+
+{% endblock content %}
+
+
+{% block content1 %}
+{% endblock content1 %}

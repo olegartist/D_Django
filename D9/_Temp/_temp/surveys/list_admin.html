@@ -1,0 +1,71 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block menu %}
+{% endblock menu %}
+
+{% block title %}
+<h1>{{ surveys|length }} из {{ surveys_count }} Опросов на {{ time_now|date:'d.m.Y' }}</h1>
+{% endblock title %}
+
+
+<!--
+<h3> {{ value1|default_if_none:"ничего" }} </h3>
+-->
+
+{% block content %}
+
+{% if surveys %}
+
+<table style="width: 100%">
+    <tr>
+        <th> №</th>
+        <th> Тема</th>
+        <th> Описание</th>
+        <th> Дата старта</th>
+        <th> Дата окончания</th>
+        <th> Вопросы</th>
+        <th></th>
+    </tr>
+    {% for survey in surveys %}
+    <tr>
+        <td> {{ survey.id}}</td>
+        <td><a href="{% url 'survey_update' survey.id %}"><u> {{ survey.theme|truncatechars:25 }} </u></a></td>
+        <td> {{ survey.description|truncatechars:25}}</td>
+        <td> {{ survey.startdate|date:'d.m.y' }}</td>
+        <td> {{ survey.enddate|date:'d.m.y' }}</td>
+        <td><a href="/surveys/questions/{{ survey.id }}"><u> {{ survey.id|qs_count }} </u></a></td>
+        <td>
+            <a href="{% url 'survey_delete' survey.id %}"><u> Del </u></a>
+        </td>
+
+    </tr>
+    {% endfor%}
+</table>
+
+{%else%}
+<h2>Опросов нет</h2>
+{%endif%}
+
+<h3><br></h3>
+<button onclick="document.location='{% url 'survey_create' %}'" class="btn btn-primary">Добавить Опрос</button>
+
+
+{% endblock content %}
+
+
+<!--
+
+
+
+
+-->
+<!-- Проверяем, что поддерживается постраничный вывод -->
+<!-- Если доступна предыдущая страница, то даём ссылку на неё и самую первую страницу
+
+
+<a href="{% url 'survey_create' %}">Добавить Опрос</a> <br>
+                        <a href="{% url 'survey_detail' survey.id %}"><u> View </u></a>
+
+
+-->

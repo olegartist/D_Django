@@ -1,0 +1,14 @@
+2021-12-31 21:11:22,739 INFO NewsPaper.views username Feniks
+2021-12-31 21:28:06,681 INFO django.utils.autoreload /home/aadmin/Python/Lessons/Django/D16/NewsPaper/views.py changed, reloading.
+2021-12-31 21:28:07,143 INFO django.utils.autoreload Watching for file changes with StatReloader
+2021-12-31 21:29:00,815 INFO django.utils.autoreload Watching for file changes with StatReloader
+2021-12-31 21:29:57,731 INFO django.utils.autoreload /home/aadmin/Python/Lessons/Django/D16/news/urls.py changed, reloading.
+2021-12-31 21:29:58,218 INFO django.utils.autoreload Watching for file changes with StatReloader
+2021-12-31 21:30:15,709 INFO NewsPaper.views username Feniks
+2021-12-31 21:30:16,745 INFO NewsPaper.views username Feniks
+2021-12-31 21:30:16,909 INFO NewsPaper.views username Feniks
+2021-12-31 21:30:46,148 INFO django.utils.autoreload /home/aadmin/Python/Lessons/Django/D16/NewsPaper/settings.py changed, reloading.
+2021-12-31 21:30:46,632 INFO django.utils.autoreload Watching for file changes with StatReloader
+2021-12-31 21:30:54,150 INFO news.views отписался Feniks от IT
+2021-12-31 21:31:09,478 INFO news.views подписался Feniks на Музыка
+2021-12-31 21:34:57,717 INFO django.utils.autoreload /home/aadmin/Python/Lessons/Django/D16/NewsPaper/settings.py changed, reloading.

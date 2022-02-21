@@ -1,0 +1,25 @@
+#: templates/flatpages/default.html:12
+msgid "Новости"
+msgstr "News"
+
+#: .\templates\index.html:36
+msgid "Имя"
+msgstr "Name"
+
+#: ./templates/index.html:9
+msgid "Портал Новостей"
+msgstr "Post news"News"
+
+
+
+#: templates/flatpages/default.html:12
+msgid "Новости"
+msgstr "News"
+
+#: templates/index.html:33
+msgid "Имя"
+msgstr "Name"
+
+#: ./templates/index.html:9
+msgid "Портал Новостей"
+msgstr "News Portal"

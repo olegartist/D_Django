@@ -1,0 +1,97 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+{% endblock menu %}
+
+{% block title %}
+<h1>Доска объявлений</h1>
+
+{% endblock title %}
+
+{% block content %}
+    <style>
+        body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %}
+        powderblue {% endif %};}
+    </style>
+    {% csrf_token %}
+    <div class="row g-3 align-items-center">
+        <div class="col-1">
+            <label for="username" class="col-form-label">Имя</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" id="username" class="form-control" name="username" value='{{request.user}}' readonly>
+        </div>
+        <div class="col-auto">
+    <span id="username" class="form-text">
+      Имя пользователя вошедшего в систему
+    </span>
+        </div>
+    </div>
+
+    <div class="row g-3 align-items-center">
+        <div class="col-1">
+            <label for="email" class="col-form-label">email</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" id="email" class="form-control" name="email" value='{{request.user.email}}' readonly>
+        </div>
+        <div class="col-auto">
+    <span id="email" class="form-text">
+      Почта пользователя вошедшего в систему
+    </span>
+        </div>
+    </div>
+
+    <div class="row g-3 align-items-center">
+        <div class="col-1">
+            <label for="type_user" class="col-form-label">Тип</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" id="type_user" class="form-control" name="type_user" value='{{type_user}}' readonly>
+        </div>
+        <div class="col-auto">
+    <span id="type_user" class="form-text">
+      Тип пользователя вошедшего в систему
+    </span>
+        </div>
+    </div>
+
+
+    <div class="row g-3 align-items-center">
+        <div class="col-1">
+            <label for="last_login" class="col-form-label">Вход</label>
+        </div>
+        <div class="col-auto">
+            <input type="datetime" id="last_login" class="form-control" name="last_login" value="{{request.user.last_login|date:'d.m.Y h:i a'}}" readonly>
+        </div>
+        <div class="col-auto">
+    <span id="last_login" class="form-text">
+      Последние дата и время входа в систему
+    </span>
+        </div>
+    </div>
+
+
+
+<br>
+
+<br>
+{% comment %}
+{% endcomment %}
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Доска Объявлений</button>
+</form>
+    <br>
+    <p>
+        <button onclick="document.location='/admin/'" class="btn btn-success">Login Admin</button>
+    </p>
+{% endblock content %}
+
+
+{% block content1 %}
+{% endblock content1 %}
+
+<!--
+
+-->

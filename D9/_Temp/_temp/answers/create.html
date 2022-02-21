@@ -1,0 +1,27 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+{% include 'answers/menu_answer.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h1> Создание Ответа </h1>
+{% endblock title %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data" class="text-left">
+
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="text" class="form-label">Тема</label>
+        <textarea class="form-control" id="text" name="text"></textarea></div>
+    <br><br>
+
+    <p>
+        <button type="submit" class="btn btn-primary">Создать Ответ</button>
+    </p>
+</form>
+{% endblock content %}
+
+{% block content1 %}
+{% endblock content1 %}

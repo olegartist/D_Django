@@ -1,0 +1,91 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+    {% include 'post/menu_index.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h1><p class="text-center">Доска объявлений {{user_cat}}</p></h1>
+
+{% endblock title %}
+
+{% block content %}
+
+    <style>
+        body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %}
+        powderblue {% endif %};}
+    </style>
+
+
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-2" >
+
+            <table>
+                <tr> <th><p class="text-center">Категории:</p></th> </tr>
+                <tr><td><a href="/posts/0" type="button" class="btn btn-outline-primary"
+                           style="width: 100%;"><u> Все </u></a></td></tr>
+                {% for cat in cats %}
+                    <tr><td><a href="{{cat.id}}" type="button" class="btn btn-outline-primary"
+                               style="width: 100%;"><u> {{cat.name }} </u></a></td></tr>
+                {% endfor%}
+
+            </table>
+
+        </div>
+        <div class="col-8">
+            <table>
+                <tr> <th>Дата</th> <th>Категория</th> <th>Заголовок</th>  </tr>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{post.created|date:'d.m.y'}}</td>
+                        <td>{{post.cats}}</td>
+                        <td><a href="{{post.cats.id}}/post/{{post.id}}" type="button" class="nav-link"><u>
+                            {{post.title }} </u></a></td>
+
+                    </tr>
+                {% endfor%}
+
+            </table>
+
+        </div>
+    </div>
+  </head>
+<br>
+<button onclick="document.location='create/{{user_cat}}'" class="btn btn-primary">Добавить Объявление</button>
+
+
+{% include 'script_editor.html' %}
+
+{% comment %}
+    <style>
+        .container {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+        }
+        .left {
+            height: 400px;
+            display: block;
+            width: 350px;
+            overflow-y: scroll;
+        }
+        .right {
+            height: 400px;
+            display: block;
+            width: 100%;
+            overflow-y: scroll;
+        }
+    </style>
+    {% endcomment %}
+
+{% endblock content %}
+
+
+{% block content1 %}
+{% endblock content1 %}
+
+<!--
+
+-->

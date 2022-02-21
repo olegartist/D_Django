@@ -1,0 +1,34 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+{% include 'surveys/menu_surveys.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h1> Создание Опроса </h1>
+{% endblock title %}
+
+{% block content %}
+<form action="/surveys/create/" method="POST" enctype="multipart/form-data" class="text-left">
+
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="theme" class="form-label">Тема</label>
+        <textarea class="form-control" id="theme" name="theme"></textarea></div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Описание</label>
+        <textarea class="form-control" id="description" name="description"></textarea></div>
+    <div class="col-2">
+        <label for="startdate" class="form-label">Дата старта</label>
+        <input type="date" class="form-control" id="startdate" name="startdate"></div><br>
+    <div class="col-2">
+        <label for="enddate" class="form-label">Дата окончания</label>
+        <input type="date" class="form-control" id="enddate" name="enddate"></div><br>
+    <p>
+        <button type="submit" class="btn btn-primary">Создать Опрос</button>
+    </p>
+</form>
+{% endblock content %}
+
+{% block content1 %}
+{% endblock content1 %}

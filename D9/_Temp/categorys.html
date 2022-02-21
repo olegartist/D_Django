@@ -1,0 +1,14 @@
+<!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
+{% extends 'flatpages/default.html' %}
+
+<!-- Название у нас будет products -->
+{% block title %}
+Categorys
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все товары -->
+{% block content %}
+<h1>Все Категории</h1>
+    {%if category%}
+{{ category }}
+{% endblock content %}

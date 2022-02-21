@@ -1,0 +1,22 @@
+{% extends 'flatpages/default.html' %}
+
+<!--{% block title0 %} <h6> Новость 0№ </h6> {% endblock title0 %}-->
+
+{% block title %}
+<h1> Aвторизация </h1>
+{% endblock title %}
+
+{% block menu %}
+{% endblock menu %}
+
+<!-- В контенте на странице мы выводим сам товар, ID которого было передано в адрес -->
+<!--    <form action="{% url 'logins:login' %}" method="POST" enctype="multipart/form-data"> -->
+
+{% block content %}
+        <h5>Введены не верные данные Логин и Пароль</h5>
+        <br><br>
+        <button onclick="document.location='{% url 'login' %}'" class="btn btn-primary">Авторизация</button>
+{% endblock content %}
+
+
+

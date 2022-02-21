@@ -1,0 +1,43 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+{% include 'surveys/menu_update.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h1> Редактирование Опроса № {{ pk }}</h1>
+{% endblock title %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="theme" class="form-label">Тема</label>
+        <textarea class="form-control" id="theme" name="theme">{{theme}}</textarea></div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Описание</label>
+        <textarea class="form-control" id="description" name="description">{{description}}</textarea></div>
+    <div class="col-2">
+        <label for="startdate" class="form-label">Дата старта</label>
+        <input type="date" class="form-control" id="startdate" name="startdate" value='{{startdate}}' readonly></div>
+    <br>
+    <div class="col-2">
+        <label for="enddate" class="form-label">Дата окончания</label>
+        <input type="date" class="form-control" id="enddate" name="enddate" value='{{enddate}}'></div>
+    <br>
+    <div class="col-2">
+        <select class="form-select" name="selected" aria-label="Default select example">
+            <option value="1">Текст</option>
+            <option value="2">Единичный</option>
+            <option value="3">Множественный</option>
+        </select></div>
+    <br><br>
+    <p>
+        <button type="submit" class="btn btn-primary">Изменить Опрос</button>
+    </p>
+
+</form>
+
+{% endblock content %}

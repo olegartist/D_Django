@@ -1,0 +1,22 @@
+from app.models import Categorys
+
+Categorys.objects.create(name='Гилдмастера', sort=1)
+Categorys.objects.create(name='Танки', sort=11)
+Categorys.objects.create(name='Хилы', sort=21)
+Categorys.objects.create(name='ДД', sort=31)
+Categorys.objects.create(name='Торговцы', sort=41)
+Categorys.objects.create(name='Квестгиверы', sort=51)
+Categorys.objects.create(name='Кузнецы', sort=61)
+Categorys.objects.create(name='Кожевники', sort=71)
+Categorys.objects.create(name='Зельевары', sort=81)
+Categorys.objects.create(name='Мастера заклинаний', sort=91)
+
+from django.contrib.auth.models import Group as gg
+gg.objects.filter(name='senior').exists()
+g = gg.objects.get(name='senior')
+
+from django.contrib.auth.models import User as uu
+u = uu.objects.filter(username='Feniks')
+u.groups.filter(name='senior').exists()
+
+

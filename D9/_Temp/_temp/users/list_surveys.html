@@ -1,0 +1,90 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block menu %}
+{% endblock menu %}
+
+{% block title %}
+<h1>{{ surveys|length }} из {{ surveys_count }} Опросов на {{ time_now|date:'d.m.Y' }}</h1>
+{% endblock title %}
+
+
+<!--
+<h3> {{ value1|default_if_none:"ничего" }} </h3>
+-->
+{% if surveys %}
+
+
+{% block content %}
+
+
+<table style="width: 100%">
+    <tr>
+        <th> №</th>
+        <th> Тема</th>
+        <th> Описание</th>
+        <th> Дата старта</th>
+        <th> Дата окончания</th>
+        <th> Вопросы</th>
+    </tr>
+    {% for survey in surveys %}
+    <tr>
+        <td> {{ survey.id}}</td>
+        <td><a href="{% url 'user_survey' survey.id %}"><u> {{ survey.theme|truncatechars:25 }} </u></a></td>
+        <td> {{ survey.description|truncatechars:25}}</td>
+        <td> {{ survey.startdate|date:'d.m.y' }}</td>
+        <td> {{ survey.enddate|date:'d.m.y' }}</td>
+        <td> {{ survey.id|qs_count }}</td>
+    </tr>
+    {% endfor%}
+</table>
+{% endblock content %}
+
+{% block content1 %}
+<hr>
+
+<table style="width: 100%">
+    <tr>
+        <th> №</th>
+        <th> Тема</th>
+        <th> Описание</th>
+        <th> Дата старта</th>
+        <th> Дата окончания</th>
+        <th> Дата прохождения</th>
+        <th> Вопросы</th>
+    </tr>
+    {% for survey2 in answered %}
+    <tr>
+        <td> {{ survey2.id}}</td>
+        <td> {{ survey2.theme|truncatechars:25 }} </td>
+        <td> {{ survey2.description|truncatechars:25}}</td>
+        <td> {{ survey2.startdate|date:'d.m.y' }}</td>
+        <td> {{ survey2.enddate|date:'d.m.y' }}</td>
+        <td> {{ survey2.created|date:'d.m.y' }}</td>
+        <td> {{ survey2.id|qs_count }}</td>
+    </tr>
+    {% endfor%}
+</table>
+
+{% endblock content1 %}
+
+{%else%}
+<h2>Опросов нет</h2>
+{%endif%}
+
+<!--
+<h3><br></h3>
+
+
+
+
+-->
+<!-- Проверяем, что поддерживается постраничный вывод -->
+<!-- Если доступна предыдущая страница, то даём ссылку на неё и самую первую страницу
+
+
+<a href="{% url 'survey_create' %}">Добавить Опрос</a> <br>
+                        <a href="{% url 'survey_detail' survey.id %}"><u> View </u></a>
+
+
+-->

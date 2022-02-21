@@ -1,0 +1,38 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block menu %}
+{% include 'answers/menu_change.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h1> Ответ №{{answer.pk}} </h1>
+{% endblock title %}
+
+
+<!--
+<h3> {{ value1|default_if_none:"ничего" }} </h3>
+-->
+
+{% block content %}
+
+<h2>Вы действительно хотите удалить Ответ?</h2>
+<table style="width: 100%">
+    <tr>
+        <th> №</th>
+        <th> Ответ</th>
+    </tr>
+    <tr>
+        <td> {{ answer.id}}</td>
+        <td> {{ answer.text|truncatechars:25 }} </td>
+    </tr>
+</table>
+
+
+<h3><br></h3>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Подтвердить</button>
+
+    {% endblock content %}
+

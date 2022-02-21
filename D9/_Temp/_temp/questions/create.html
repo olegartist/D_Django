@@ -1,0 +1,33 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+{% include 'questions/menu_question.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h1> Создание Вопроса </h1>
+{% endblock title %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data" class="text-left">
+
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="text" class="form-label">Тема</label>
+        <textarea class="form-control" id="text" name="text"></textarea></div>
+    <br><br>
+    <div class="col-2">
+        <select class="form-select" name="selected" aria-label="Default select example">
+            <option value="0">Текст</option>
+            <option value="1">Единичный</option>
+            <option value="2">Множественный</option>
+        </select></div>
+
+    <p>
+        <button type="submit" class="btn btn-primary">Создать Вопрос</button>
+    </p>
+</form>
+{% endblock content %}
+
+{% block content1 %}
+{% endblock content1 %}

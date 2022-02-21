@@ -1,0 +1,40 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block menu %}
+{% include 'questions/menu_change.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h1> Вопрос №{{question.pk}} </h1>
+{% endblock title %}
+
+
+<!--
+<h3> {{ value1|default_if_none:"ничего" }} </h3>
+-->
+
+{% block content %}
+
+<h2>Вы действительно хотите удалить Вопрос?</h2>
+<table style="width: 100%">
+    <tr>
+        <th> №</th>
+        <th> Вопрос</th>
+        <th> Тип</th>
+    </tr>
+    <tr>
+        <td> {{ question.id}}</td>
+        <td> {{ question.text|truncatechars:25 }} </td>
+        <td> {{ question.type|qs_type}}</td>
+    </tr>
+</table>
+
+
+<h3><br></h3>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Подтвердить</button>
+
+    {% endblock content %}
+

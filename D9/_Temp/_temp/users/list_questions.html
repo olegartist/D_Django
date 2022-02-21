@@ -1,0 +1,89 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block menu %}
+{% include 'users/menu_surveys.html' %}
+{% endblock menu %}
+
+{% block title %}
+<h4>Тема: {{theme}}</h4>
+<h4>Описание: {{description}}</h4>
+<h5>Вопросов: {{ questions_count }}</h5>
+{% endblock title %}
+
+
+<!--
+<h3> {{ value1|default_if_none:"ничего" }} </h3>
+-->
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+
+
+    {% for question in questions %}
+        <div class="alert alert-primary" role="alert">
+            {{forloop.counter}}. {{ question.text}}
+        </div>
+        {% for answer in question.id|aw_list %}
+            {% if question.type == '2' %}
+                <div class="container overflow-hidden">
+                  <div class="row gx-5">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="{{answer.id}}" value="" id="{{answer.id}}">
+                            <label class="form-check-label" for="{{answer.id}}">
+                            </label> {{answer.text}}
+                        </div>
+                    </div></div></div>
+            {% endif %}
+            {% if question.type == '1' %}
+                <div class="container overflow-hidden">
+                  <div class="row gx-5">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="{{answer.id}}" id="{{answer.id}}">
+                            <label class="form-check-label" for="{{answer.id}}">
+                            </label> {{answer.text}}
+                        </div>
+                </div></div></div>
+            {% endif %}
+        {% endfor%}
+        {% if question.type == '0' %}
+            <div class="mb-3">
+                <label for="q{{question.id}}" class="form-label">Ответ (текстом)</label>
+                <textarea class="form-control" id="q{{question.id}}" name="q{{question.id}}"></textarea></div>
+        {% endif %}
+    {% endfor%}
+
+<h3><br></h3>
+        <button type="submit" class="btn btn-primary">Записать ответы на Опрос</button>
+</form>
+{% endblock content %}
+
+<!--
+
+
+            <div class="container overflow-hidden">
+              <div class="row gx-5">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="q{{question.id}}">
+                        <label class="form-check-label" for="q{{question.id}}">
+                        </label> answer.text
+                    </div>
+            </div></div></div>
+
+
+<button onclick="document.location='create/'" class="btn btn-primary">Добавить Вопросы</button>
+
+        {%if question.id|as_count == 'текст' %}
+            <td>Текст</td>
+        {%else%}
+            <td> {{ question.id|as_count }} </td>
+        {%endif%}
+
+        <td><a href="{% url 'question_update' question.id %}"><u> {{ question.text|truncatechars:25 }} </u></a></td>
+        <td><a href="{% url 'question_update' survey.id %}"><u> {{ question.theme|truncatechars:25 }} </u></a></td>
+
+-->
