@@ -1,0 +1,66 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+    {% include 'clicks/menu_confirm.html' %}
+{% endblock menu %}
+
+{% block title %}
+    <h3><p class="text-center">Заголовок: {{post.title}}</p></h3>
+    <h4><p class="text-center">Написал {{post.user.username}} от {{post.created|date:'d.m.Y'}}, категория: {{post.cats.name}}</p></h4>
+{% endblock title %}
+
+{% block content %}
+    <style>
+        body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %}
+        powderblue {% endif %};}
+    </style>
+
+{% include 'script_view.html' %}
+
+        <div class="input-group">
+          <span class="col-1">Текст</span>
+          <textarea id="forTinyMCE" class="form-control" readonly >{{post.content}}</textarea>
+        </div>
+
+<br><hr>
+<h2><p class="text-center">Отклики:</p></h2>
+{% if clicks %}
+    <form method="POST" enctype="multipart/form-data" class="text-left">
+    {% csrf_token %}
+
+    {% for clic in clicks %}
+        <h7><p class="text-center">Отклик написал: {{post.user.username}} от {{clic.created|date:'d.m.Y'}}</p></h7>
+        <div class="input-group">
+          <span class="col-1">Отклик</span>
+          <textarea class="form-control" name="clic" readonly >{{clic.text}}</textarea>
+        </div>
+
+        <div class="input-group">
+          <span class="col-1"></span>
+            <select class="form-select" aria-label="Default select example" name="cl{{clic.id}}" required="">
+                    <option selected value="1">Принято</option>
+                    <option value="0">Удалить</option>
+            </select>
+        </div>
+
+        <br><hr>
+   {% endfor%}
+   <br>
+   <p><button type="submit" class="btn btn-primary">Применить</button></p>
+   </form>
+
+{% endif %}
+
+
+    {% comment %}
+    {% endcomment %}
+
+{% endblock content %}
+
+
+{% block content1 %}
+{% endblock content1 %}
+
+<!--
+
+-->

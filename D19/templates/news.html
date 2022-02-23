@@ -1,0 +1,52 @@
+{% extends 'flatpages/default.html' %}
+
+{% block menu %}
+    {% include 'post/menu_post.html' %}
+{% endblock menu %}
+
+{% block title %}
+    <h1><p class="text-center">Рассылка новостей по Доска объявлений MPOG </p></h1>
+{% endblock title %}
+
+{% block content %}
+    <style>
+        body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %}
+        powderblue {% endif %};}
+    </style>
+
+
+    <form method="POST" enctype="multipart/form-data" class="text-left">
+    {% csrf_token %}
+
+        <div class="input-group">
+          <span class="col-1">Категория</span>
+            <select class="form-select" aria-label="Default select example" name="cats" required="" id="cats">
+                <option selected value="Все категории">Все категории</option>
+                {% for cat in cats %}
+                    <option value="{{cat.name}}">{{cat.name}}</option>
+                {% endfor%}
+            </select>
+        </div>
+
+        <br>
+        <div class="input-group">
+          <span class="col-1">Текст</span>
+          <textarea id="text" class="form-control" name="text"></textarea>
+        </div>
+        <br>
+        <p><button type="submit" class="btn btn-primary">Отправить новости</button></p>
+    </form>
+
+
+    {% comment %}
+    {% endcomment %}
+
+{% endblock content %}
+
+
+{% block content1 %}
+{% endblock content1 %}
+
+<!--
+
+-->

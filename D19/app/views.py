@@ -110,7 +110,7 @@ class DetailView(LoginRequiredMixin, TemplateView):
     def get(self, request, *args, **kwargs):
         user_cat = int(self.kwargs.get('cat'))
         post_id = int(self.kwargs.get('post'))
-        post = Posts.objects.filter(pk=int(post_id))[0]
+        post = Posts.objects.get(pk=int(post_id))
         context = self.get_context_data()
         context['post'] = post
         context['user_cat'] = user_cat
@@ -119,7 +119,7 @@ class DetailView(LoginRequiredMixin, TemplateView):
         # context['title'] = request.POST['title']
         # context['content'] = request.POST['content']
         context['is_edit'] = False
-        context['clicks'] = Clicks.objects.filter(post=int(post_id)).order_by('-created')
+        context['clicks'] = Clicks.objects.filter(post=int(post_id), show=True).order_by('-created')
 
         if request.user.pk == post.user.pk:
             context['is_edit'] = True

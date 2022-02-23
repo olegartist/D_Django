@@ -1,0 +1,55 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block menu %}
+    {% include 'clicks/menu_list.html' %}
+{% endblock menu %}
+
+{% block title %}
+    <h1><p class="text-center">Подтверждение Откликов</p></h1>
+{% endblock title %}
+
+{% block content %}
+
+    <style>
+        body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %}
+        powderblue {% endif %};}
+    </style>
+
+
+    {% csrf_token %}
+
+        <div class="col-8">
+            <table>
+                <tr>
+                    <th>Дата</th> <th>Категория</th><th>Заголовок</th><th>Всего</th><th>Новые</th>
+                </tr>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{post.created|date:'d.m.y'}}</td>
+                        <td>{{post.cats}}</td>
+                        <td><a href="confirm/{{post.id}}" type="button" class="nav-link"><u>
+                            {{post.title }} </u></a></td>
+                        <td>{{request.user.id|all_clicks:post.id}}</td>
+                        <td>{{request.user.id|att_clicks:post.id}}</td>
+
+                    </tr>
+                {% endfor%}
+
+            </table>
+
+        </div>
+
+  </head>
+
+
+
+{% endblock content %}
+
+{% comment %}
+{% endcomment %}
+
+
+{% block content1 %}
+{% endblock content1 %}
+

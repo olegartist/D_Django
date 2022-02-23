@@ -28,12 +28,16 @@
     {% csrf_token %}
 
         <div class="input-group">
-          <span class="col-1">Отзыв</span>
+          <span class="col-1">Отклик</span>
           <textarea id="clicks" class="form-control" name="clicks"></textarea>
         </div>
 
         <br>
-        <p><button type="submit" class="btn btn-primary">Создать Отзыв</button></p>
+        <hr>
+        <h5>Отклик появится, после подтверждения хозяином объявления</h5>
+        <hr>
+        <br>
+        <p><button type="submit" class="btn btn-primary">Создать Отклик</button></p>
     </form>
     {% comment %}
     {% endcomment %}

@@ -71,7 +71,29 @@
         </div>
     </div>
 
+    <div class="row g-3 align-items-center">
+        <div class="col-1">
+            <label class="col-form-label">Объявлений</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" class="form-control" value='{{col_posts}}' readonly>
+        </div>
+        <div class="col-auto">
+            <span class="form-text">Количество Ваших Объявлений </span>
+        </div>
+    </div>
 
+    <div class="row g-3 align-items-center">
+        <div class="col-1">
+            <label class="col-form-label">Отклик</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" class="form-control" value='{{col_clicks}}' readonly>
+        </div>
+        <div class="col-auto">
+            <span class="form-text">Количество не обработанных Откликов </span>
+        </div>
+    </div>
 
 <br>
 
@@ -82,6 +104,12 @@
     {% csrf_token %}
     <button type="submit" class="btn btn-primary">Доска Объявлений</button>
 </form>
+{% if type_user == "Спициалист" or type_user == "Администратор" %}
+    <br>
+    <p>
+        <button onclick="document.location='/news/'" class="btn btn-warning">Новостная рассылка</button>
+    </p>
+{% endif %}
     <br>
     <p>
         <button onclick="document.location='/admin/'" class="btn btn-success">Login Admin</button>

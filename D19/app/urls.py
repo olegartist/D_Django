@@ -7,4 +7,5 @@ urlpatterns = [
     path('create/<int:cat>', CreateView.as_view() ),
     path('<int:cat>/post/<int:post>', DetailView.as_view()),
     path('<int:cat>/post/<int:post>/clicks/', include('clicks.urls')),
+    path('<int:cat>/clicks/', include('clicks.urls')),
 ]
