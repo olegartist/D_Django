@@ -182,7 +182,7 @@ def detach(path, argv, logfile=None, pidfile=None, uid=None,
               value: value or ctx.obj.app.conf.worker_prefetch_multiplier,
               cls=CeleryOption,
               help_group="Worker Options",
-              help="Set custom prefetch multiplier value"
+              help="Set custom prefetch multiplier value "
                    "for this worker instance.")
 @click.option('-c',
               '--concurrency',
@@ -194,7 +194,7 @@ def detach(path, argv, logfile=None, pidfile=None, uid=None,
               help_group="Pool Options",
               help="Number of child processes processing the queue.  "
                    "The default is the number of CPUs available"
-                   "on your system.")
+                   " on your system.")
 @click.option('-P',
               '--pool',
               default='prefork',

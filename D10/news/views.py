@@ -11,6 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives # send_mail
 from NewsPaper.settings import ALLOWED_HOSTS
+from NewsPaper.tasks import mail_new_post
 
 class PostList(LoginRequiredMixin, ListView):
     model = Post
@@ -67,44 +68,46 @@ class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
             #         # если автор ещё не подписан на категорию
             #         Subscribe.objects.create(author=post.author, category=cc)
 
-            for cat in post.cats.all():
-                for sub in Subscribe.objects.filter(category_id=cat.id):
-                    # получить всех авторов подписаных на категорию
-                    #print(sub.user.id, cat.id)
+            mail_new_post.delay(post.id)
 
-                    if sub.user.email:
-                        # если есть майл
-
-                        # отправляем письмо
-                        # send_mail(
-                        #     subject=f'{post.author.user.username} {post.created.strftime("%d-%m-%Y %H:%M")}',  # имя клиента и дата записи будут в теме для удобства
-                        #     message=f'{post.head} \n {post.text}',  # сообщение с кратким описанием проблемы
-                        #     from_email='Skill.testing@yandex.ru', # здесь указываете почту, с которой будете отправлять (об этом попозже)
-                        #     recipient_list=[post.author.user.email]  # здесь список получателей. Например, секретарь, сам врач и т. д.
-                        # )
-
-                        html_content = render_to_string(
-                            'post/pochta.html', {
-                                'user': sub.user,
-                                'title': post.title,
-                                'cat': cat,
-                                'text': post.text[:50],
-                                'link': f'http://{ALLOWED_HOSTS[0]}:8000/news/{post.id}',
-                            }
-                        )
-
-                        # в конструкторе уже знакомые нам параметры, да? Называются правда немного по-другому, но суть та же.
-                        msg = EmailMultiAlternatives(
-                            subject=f'{cat} создана {post.created.strftime("%d-%m-%Y %H:%M")}',
-                            # body=f'{post.head} \n {post.text}',  # это то же, что и message
-                            from_email='Skill.testing@yandex.ru',
-                            to=[sub.user.email],  # это то же, что и recipients_list
-                        )
-                        msg.attach_alternative(html_content, "text/html")  # добавляем html
-                        try:
-                            msg.send()  # отсылаем
-                        except Exception as e:
-                            print('Not sen email')
+            # for cat in post.cats.all():
+            #     for sub in Subscribe.objects.filter(category_id=cat.id):
+            #         # получить всех авторов подписаных на категорию
+            #         #print(sub.user.id, cat.id)
+            #
+            #         if sub.user.email:
+            #             # если есть майл
+            #
+            #             # отправляем письмо
+            #             # send_mail(
+            #             #     subject=f'{post.author.user.username} {post.created.strftime("%d-%m-%Y %H:%M")}',  # имя клиента и дата записи будут в теме для удобства
+            #             #     message=f'{post.head} \n {post.text}',  # сообщение с кратким описанием проблемы
+            #             #     from_email='Skill.testing@yandex.ru', # здесь указываете почту, с которой будете отправлять (об этом попозже)
+            #             #     recipient_list=[post.author.user.email]  # здесь список получателей. Например, секретарь, сам врач и т. д.
+            #             # )
+            #
+            #             html_content = render_to_string(
+            #                 'post/pochta.html', {
+            #                     'user': sub.user,
+            #                     'title': post.title,
+            #                     'cat': cat,
+            #                     'text': post.text[:50],
+            #                     'link': f'http://{ALLOWED_HOSTS[0]}:8000/news/{post.id}',
+            #                 }
+            #             )
+            #
+            #             # в конструкторе уже знакомые нам параметры, да? Называются правда немного по-другому, но суть та же.
+            #             msg = EmailMultiAlternatives(
+            #                 subject=f'{cat} создана {post.created.strftime("%d-%m-%Y %H:%M")}',
+            #                 # body=f'{post.head} \n {post.text}',  # это то же, что и message
+            #                 from_email='Skill.testing@yandex.ru',
+            #                 to=[sub.user.email],  # это то же, что и recipients_list
+            #             )
+            #             msg.attach_alternative(html_content, "text/html")  # добавляем html
+            #             try:
+            #                 msg.send()  # отсылаем
+            #             except Exception as e:
+            #                 print('Not sen email')
 
             return redirect('/news/')
 
